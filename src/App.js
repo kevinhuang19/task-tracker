@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import Axios from 'axios';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [task, setTask] = useState('');
+    const [user, setUser] = useState('');
+
+    const addTask = () => {
+        Axios.post("http://localhost:3000/addTask", {
+            task: task,
+            user: user
+        }).then(() => {
+            console.log('success');
+        });
+    };
+
+    return (
+        <div className="App">
+            <div className="information">
+                <label>Task</label>
+                <input type="text" onChange={(event) => (setTask(event.target.value))} />
+                <label>Assigned To</label>
+                <input type="text" onChange={(event) => (setUser(event.target.value))} />
+                <button onClick={addTask}>Add Task</button>
+            </div>
+        </div>
+    );
 }
 
 export default App;
