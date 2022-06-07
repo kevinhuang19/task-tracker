@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+
 
 Task Tracker (CRUD) App Using MySQL Database
 
