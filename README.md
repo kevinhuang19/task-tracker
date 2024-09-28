@@ -8,7 +8,7 @@
 1. MySQL Workbench
 2. React JS
 3. Node JS
-4. Express
+4. Express JS
 5. Cors
 6. Nodemon
 7. Axios
